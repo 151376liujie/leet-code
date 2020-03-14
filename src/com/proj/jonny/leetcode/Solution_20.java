@@ -40,12 +40,17 @@ public class Solution_20 {
         System.out.println(isValid("()"));
         System.out.println(isValid("([)]"));
         System.out.println(isValid("(]"));
+        System.out.println(isValid("("));
     }
 
     public static boolean isValid(String s) {
 
         if (s.isEmpty()) {
             return true;
+        }
+        //如果字符串个数是个奇数，它肯定不是个有效的字符串
+        if (s.length() % 2 != 0){
+            return false;
         }
 
         Stack<Character> stack = new Stack<>();
