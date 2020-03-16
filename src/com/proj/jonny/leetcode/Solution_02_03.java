@@ -48,8 +48,6 @@ public class Solution_02_03 {
         node_4.next = node_5;
         ListNode node_6 = new ListNode(6);
         node_5.next = node_6;
-        ListNode node_7 = new ListNode(7);
-        node_6.next = node_7;
 
         deleteNode(node_3);
         System.out.println(node_1);
