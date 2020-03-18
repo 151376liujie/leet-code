@@ -1,4 +1,4 @@
-package com.proj.jonny.leetcode;
+package com.proj.jonny.leetcode.link;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.proj.jonny.leetcode;
+package com.proj.jonny.leetcode.link;
 
 import java.util.StringJoiner;
 
@@ -8,20 +8,6 @@ import java.util.StringJoiner;
  */
 public class Solution_02_03 {
 
-
-    private static class ListNode {
-      int val;
-      ListNode next;
-      ListNode(int x) { val = x; }
-
-        @Override
-        public String toString() {
-            return new StringJoiner(", ", ListNode.class.getSimpleName() + "[", "]")
-                    .add("val=" + val)
-                    .add("next=" + next)
-                    .toString();
-        }
-    }
 
     public static void deleteNode(ListNode node) {
         ListNode cur = node;
@@ -51,5 +37,22 @@ public class Solution_02_03 {
 
         deleteNode(node_3);
         System.out.println(node_1);
+    }
+
+    private static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
+
+        @Override
+        public String toString() {
+            return new StringJoiner(", ", ListNode.class.getSimpleName() + "[", "]")
+                    .add("val=" + val)
+                    .add("next=" + next)
+                    .toString();
+        }
     }
 }
