@@ -27,9 +27,9 @@ public class Solution_19 {
         ListNode forth = new ListNode(4);
         ListNode fifth = new ListNode(5);
         head.next = second;
-//        second.next = third;
-//        third.next = forth;
-//        forth.next = fifth;
+        second.next = third;
+        third.next = forth;
+        forth.next = fifth;
 
         System.out.println(removeNthFromEnd(head, 2));
     }
@@ -46,9 +46,6 @@ public class Solution_19 {
         for (int i = 0; i < n; i++) {
             fast = fast.next;
         }
-
-        System.out.println(fast);
-        System.out.println(slow);
 
         while (fast.next != null) {
             fast = fast.next;
