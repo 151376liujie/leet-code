@@ -1,4 +1,4 @@
-package com.proj.jonny.leetcode.link;
+package com.proj.jonny.leetcode.Interview.questions.link;
 
 import java.util.StringJoiner;
 
