@@ -1,4 +1,4 @@
-package com.proj.jonny.leetcode.Interview.questions;
+package com.proj.jonny.leetcode;
 
 import java.util.HashMap;
 import java.util.Map;

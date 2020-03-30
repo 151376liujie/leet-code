@@ -1,7 +1,5 @@
 package com.proj.jonny.leetcode.link;
 
-import java.util.StringJoiner;
-
 /**
  * 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
  * <p>
@@ -57,23 +55,6 @@ public class Solution_19 {
         delNode.next = null;
 
         return dummyHead.next;
-    }
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-
-        @Override
-        public String toString() {
-            return new StringJoiner(", ", ListNode.class.getSimpleName() + "[", "]")
-                    .add("val=" + val)
-                    .add("next=" + next)
-                    .toString();
-        }
     }
 
 }

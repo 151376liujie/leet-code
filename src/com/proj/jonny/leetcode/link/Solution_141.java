@@ -59,14 +59,4 @@ public class Solution_141 {
         }
         return false;
     }
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-
-        public ListNode(int val) {
-            this.val = val;
-            this.next = null;
-        }
-    }
 }

@@ -1,7 +1,5 @@
 package com.proj.jonny.leetcode.link;
 
-import java.util.StringJoiner;
-
 /**
  * Author: jonny
  * Time: 2020-03-18 18:05.
@@ -65,22 +63,5 @@ public class Solution_21 {
         node.next = cur;
         prev.next = node;
         return head;
-    }
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-
-        @Override
-        public String toString() {
-            return new StringJoiner(", ", ListNode.class.getSimpleName() + "[", "]")
-                    .add("val=" + val)
-                    .add("next=" + next)
-                    .toString();
-        }
     }
 }

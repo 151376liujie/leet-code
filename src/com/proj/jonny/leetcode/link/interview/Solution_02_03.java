@@ -1,13 +1,13 @@
-package com.proj.jonny.leetcode.Interview.questions.link;
+package com.proj.jonny.leetcode.link.interview;
 
-import java.util.StringJoiner;
+import com.proj.jonny.leetcode.link.ListNode;
 
 /**
- * Author: jonny
  * Time: 2020-03-16 12:35.
+ *
+ * @author liujie361
  */
 public class Solution_02_03 {
-
 
     public static void deleteNode(ListNode node) {
         ListNode cur = node;
@@ -37,22 +37,5 @@ public class Solution_02_03 {
 
         deleteNode(node_3);
         System.out.println(node_1);
-    }
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-
-        @Override
-        public String toString() {
-            return new StringJoiner(", ", ListNode.class.getSimpleName() + "[", "]")
-                    .add("val=" + val)
-                    .add("next=" + next)
-                    .toString();
-        }
     }
 }

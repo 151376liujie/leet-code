@@ -1,4 +1,6 @@
-package com.proj.jonny.leetcode.Interview.questions.link;
+package com.proj.jonny.leetcode.link.interview;
+
+import com.proj.jonny.leetcode.link.ListNode;
 
 /**
  * 反转链表
@@ -54,7 +56,7 @@ public class Solution_24 {
     private static ListNode reverseList(ListNode head) {
 
         if (head == null) {
-            return head;
+            return null;
         }
 
         ListNode prev = null;
@@ -67,22 +69,4 @@ public class Solution_24 {
         }
         return prev;
     }
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-
-        @Override
-        public String toString() {
-            return "ListNode{" +
-                    "val=" + val +
-                    ", next=" + next +
-                    '}';
-        }
-    }
-
 }

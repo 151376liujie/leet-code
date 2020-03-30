@@ -1,7 +1,5 @@
 package com.proj.jonny.leetcode.link;
 
-import java.util.StringJoiner;
-
 /**
  * 反转一个单链表。
  * <p>
@@ -53,24 +51,5 @@ public class Solution_206 {
         head.next.next = head;
         head.next = null;
         return newHead;
-    }
-
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-
-
-        @Override
-        public String toString() {
-            return new StringJoiner(", ", ListNode.class.getSimpleName() + "[", "]")
-                    .add("val=" + val)
-                    .add("next=" + next)
-                    .toString();
-        }
     }
 }
