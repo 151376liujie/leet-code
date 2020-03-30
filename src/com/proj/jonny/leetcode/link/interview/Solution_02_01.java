@@ -34,6 +34,8 @@ public class Solution_02_01 {
 
         System.out.println(removeDuplicateNodes(LinkUtils.of(1, 1, 1, 1, 2)));
         System.out.println(removeDuplicateNodes(LinkUtils.of(1, 1, 1, 1, 1)));
+
+        System.out.println(deleteNode(LinkUtils.of(1, 2, 3, 4, 5), 3));
     }
 
     public static ListNode removeDuplicateNodes(ListNode head) {
@@ -55,5 +57,28 @@ public class Solution_02_01 {
             }
         }
         return head;
+    }
+
+    public static ListNode deleteNode(ListNode head, int val) {
+
+        ListNode dummyHead = new ListNode(-1);
+
+        dummyHead.next = head;
+
+        ListNode cur = head;
+        ListNode prev = dummyHead;
+
+        while (cur != null) {
+            if (cur.val == val) {
+                ListNode next = cur.next;
+                prev.next = next;
+                cur.next = null;
+                cur = next;
+            } else {
+                prev = cur;
+                cur = cur.next;
+            }
+        }
+        return dummyHead.next;
     }
 }
