@@ -1,6 +1,6 @@
 package com.proj.jonny.leetcode.tree;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 /**
  * 二叉搜索树迭代器
@@ -29,18 +29,25 @@ public class Solution_173 {
 
 
         BSTIterator iterator = new BSTIterator(root);
-
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
 
+        int[] arr = {1, 2, 3, 4, 5};
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i : arr) {
+            list.add(i);
+        }
     }
 
     static class BSTIterator {
 
-        private LinkedList<Integer> queue = new LinkedList<>();
+        private ArrayList<Integer> queue;
+        private int index;
 
         public BSTIterator(TreeNode root) {
+            queue = new ArrayList<>();
+            index = -1;
             inOrder(root);
         }
 
@@ -51,7 +58,7 @@ public class Solution_173 {
             if (node.left != null) {
                 inOrder(node.left);
             }
-            queue.addLast(node.val);
+            queue.add(node.val);
             if (node.right != null) {
                 inOrder(node.right);
             }
@@ -61,14 +68,14 @@ public class Solution_173 {
          * @return the next smallest number
          */
         public int next() {
-            return queue.removeFirst();
+            return queue.get(++index);
         }
 
         /**
          * @return whether we have a next smallest number
          */
         public boolean hasNext() {
-            return !queue.isEmpty();
+            return index < queue.size() - 1;
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.proj.jonny.leetcode.bst;
+package com.proj.jonny.leetcode.tree;
 
 import java.util.ArrayList;
 import java.util.List;

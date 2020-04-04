@@ -1,9 +1,5 @@
 package com.proj.jonny.leetcode.tree;
 
-/**
- * Author: jonny
- * Time: 2020-04-04 11:08.
- */
 public class TreeNode {
 
     int val;
@@ -12,5 +8,14 @@ public class TreeNode {
 
     TreeNode(int x) {
         val = x;
+    }
+
+    @Override
+    public String toString() {
+        return "TreeNode{" +
+                "val=" + val +
+                ", left=" + left +
+                ", right=" + right +
+                '}';
     }
 }
