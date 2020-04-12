@@ -1,4 +1,4 @@
-package com.proj.jonny.leetcode;
+package com.proj.jonny.leetcode.math;
 
 /**
  * 斐波那契数

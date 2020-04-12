@@ -1,4 +1,4 @@
-package com.proj.jonny.leetcode;
+package com.proj.jonny.leetcode.math;
 
 import java.util.Arrays;
 
