@@ -30,7 +30,7 @@ import com.proj.jonny.leetcode.tree.TreeNodeUtils;
  */
 public class Solution_68 {
     public static void main(String[] args) {
-        TreeNode root = TreeNodeUtils.buildFrom(6, 2, 8, 0, 4, 7, 9, -1, -1, 3, 5);
+        TreeNode root = TreeNodeUtils.buildFrom(6, 2, 8, 0, 4, 7, 9, null, null, 3, 5);
         System.out.println(lowestCommonAncestor(root, new TreeNode(2), new TreeNode(4)));
 
     }
@@ -44,7 +44,8 @@ public class Solution_68 {
         if (root.val > p.val && root.val > q.val) {
             return lowestCommonAncestor(root.left, p, q);
         } else if (root.val < p.val && root.val < q.val) {
-            return lowestCommonAncestor(root.left, p, q);
+            //root节点大小比p、q都小，那么去root的右子树继续寻找
+            return lowestCommonAncestor(root.right, p, q);
         }
         return root;
     }

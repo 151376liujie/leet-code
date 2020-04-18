@@ -7,8 +7,8 @@ package com.proj.jonny.leetcode.tree;
 public class TreeNodeUtils {
 
     public static void main(String[] args) {
-        System.out.println(buildFrom(1, -1, 2));
-        System.out.println(buildFrom(1, 2, 3, -1, 5, -1, 6));
+        System.out.println(buildFrom(1, null, 2));
+        System.out.println(buildFrom(1, 2, 3, null, 5, null, 6));
     }
 
     /**
@@ -17,7 +17,7 @@ public class TreeNodeUtils {
      * @param arr 空的子节点用-1的值来取代
      * @return
      */
-    public static TreeNode buildFrom(int... arr) {
+    public static TreeNode buildFrom(Integer... arr) {
         if (arr.length == 0) {
             return null;
         }
@@ -26,8 +26,8 @@ public class TreeNodeUtils {
         return root;
     }
 
-    private static TreeNode buildFromIndex(int index, int[] arr) {
-        if (index >= arr.length || arr[index] == -1) {
+    private static TreeNode buildFromIndex(int index, Integer[] arr) {
+        if (index >= arr.length || arr[index] == null) {
             return null;
         }
 

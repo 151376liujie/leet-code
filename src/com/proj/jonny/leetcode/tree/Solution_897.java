@@ -16,7 +16,7 @@ import java.util.List;
 public class Solution_897 {
 
     public static void main(String[] args) {
-        System.out.println(increasingBST(TreeNodeUtils.buildFrom(5, 3, 6, 2, 4, -1, 8, 1, -1, -1, -1, 7, 9)));
+        System.out.println(increasingBST(TreeNodeUtils.buildFrom(5, 3, 6, 2, 4, null, 8, 1, null, null, null, 7, 9)));
     }
 
     public static TreeNode increasingBST(TreeNode root) {

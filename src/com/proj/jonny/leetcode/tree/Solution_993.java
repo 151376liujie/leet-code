@@ -50,10 +50,10 @@ public class Solution_993 {
         TreeNode root = TreeNodeUtils.buildFrom(1, 2, 3, 4);
         System.out.println(isCousins(root, 4, 3));
         //[1,2,3,null,4,null,5], x = 5, y = 4
-        root = TreeNodeUtils.buildFrom(1, 2, 3, -1, 4, -1, 5);
+        root = TreeNodeUtils.buildFrom(1, 2, 3, null, 4, null, 5);
         System.out.println(isCousins(root, 5, 4));
 
-        root = TreeNodeUtils.buildFrom(1, 2, 3, -1, 4);
+        root = TreeNodeUtils.buildFrom(1, 2, 3, null, 4);
         System.out.println(isCousins(root, 2, 3));
     }
 
