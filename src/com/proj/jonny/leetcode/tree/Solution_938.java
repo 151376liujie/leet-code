@@ -81,13 +81,13 @@ public class Solution_938 {
             return 0;
         }
 
-        if (node.val >= R) {
-            return node.val + rangeSumBST(node.left, L, R);
-        } else if (node.val <= L) {
-            return node.val + rangeSumBST(node.right, L, R);
+        if (node.val > R) {
+            return rangeSumBST(node.left, L, R);
+        } else if (node.val < L) {
+            return rangeSumBST(node.right, L, R);
         }
         // 当前节点的值在L 和R 之间
-        return node.val + rangeSumBST(node.left, L, R) + rangeSumBST(node.right, L, R);
+        return node.val + rangeSumBST2(node.left, L, R) + rangeSumBST2(node.right, L, R);
     }
 
 }
