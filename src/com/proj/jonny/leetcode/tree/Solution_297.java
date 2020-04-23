@@ -1,4 +1,4 @@
-package com.proj.jonny.leetcode.array;
+package com.proj.jonny.leetcode.tree;
 
 import com.proj.jonny.leetcode.tree.TreeNode;
 import com.proj.jonny.leetcode.tree.TreeNodeUtils;
@@ -31,16 +31,16 @@ import java.util.*;
  * Author: jonny
  * Time: 2020-04-21 09:54.
  */
-public class Solution_112 {
+public class Solution_297 {
 
     public static void main(String[] args) {
         Codec codec = new Codec();
-        TreeNode root = TreeNodeUtils.buildFrom(1, 2, 3, null, null, 4, 5);
-//        TreeNode root = TreeNodeUtils.buildFrom(5, 2, 3, null, null, 2, 4, 3, 1);
+//        TreeNode root = TreeNodeUtils.buildFrom(1, 2, 3, null, null, 4, 5);
+        TreeNode root = TreeNodeUtils.buildFrom(5, 2, 3, null, null, 2, 4,null,null,null,null, 3, 1);
 //        TreeNode root = TreeNodeUtils.buildFrom();
         String serialize = codec.serialize(root);
         System.out.println(serialize);
-//        System.out.println(codec.deserialize(serialize));
+        System.out.println(codec.deserialize(serialize));
     }
 
 
@@ -77,10 +77,25 @@ public class Solution_112 {
             int cur = 1;
             while (!queue.isEmpty()) {
                 TreeNode curNode = queue.poll();
-
+                if (cur == list.size()) {
+                    break;
+                }
+                if (list.get(cur) != null) {
+                    curNode.left = new TreeNode(list.get(cur));
+                    queue.add(curNode.left);
+                }
+                cur++;
+                if (cur == list.size()) {
+                    break;
+                }
+                if (list.get(cur) != null) {
+                    curNode.right = new TreeNode(list.get(cur));
+                    queue.add(curNode.right);
+                }
+                cur++;
             }
 
-            return null;
+            return root;
         }
 
         private List<String> levelOrder(TreeNode node) {
@@ -102,7 +117,7 @@ public class Solution_112 {
                     queue.offer(tmp.right);
                 }
             }
-//             list 尾部中多加了一些null元素，需要从尾部删除这些多余的null元素
+            //list 尾部中多加了一些null元素，需要从尾部删除这些多余的null元素
             int size = list.size();
             for (int i = size - 1; i >= 0; i--) {
                 if (list.get(i) == null) {
