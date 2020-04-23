@@ -9,6 +9,8 @@ public class TreeNodeUtils {
     public static void main(String[] args) {
         System.out.println(buildFrom(1, null, 2));
         System.out.println(buildFrom(1, 2, 3, null, 5, null, 6));
+        TreeNode tree = buildFrom(5, 4, 8, 11, null, 13, 4, 7, 2, null, null, null, null, null, 1);
+        System.out.println(tree);
     }
 
     /**
