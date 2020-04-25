@@ -1,8 +1,5 @@
 package com.proj.jonny.leetcode.tree;
 
-import com.proj.jonny.leetcode.tree.TreeNode;
-import com.proj.jonny.leetcode.tree.TreeNodeUtils;
-
 import java.util.*;
 
 /**
