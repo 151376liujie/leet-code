@@ -31,7 +31,6 @@ public class Solution_191 {
         System.out.println(hammingWeight(1));
         System.out.println(hammingWeight(5));
         System.out.println(hammingWeight(0));
-
     }
 
     // you need to treat n as an unsigned value
