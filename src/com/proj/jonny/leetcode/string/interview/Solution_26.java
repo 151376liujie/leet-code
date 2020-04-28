@@ -68,9 +68,7 @@ public class Solution_26 {
                 numberStack.push(number);
                 number = 0;
                 //该字符是操作符
-                if (operatorStack.isEmpty()) {
-                    operatorStack.push(ch);
-                } else {
+                if (!operatorStack.isEmpty()) {
                     Character topOperator = operatorStack.peek();
                     // 当前操作符优先级比栈顶操作符优先级小（比如当前操作符: +,栈顶操作符：*）
                     while (priorityMap.get(topOperator) >= priorityMap.get(ch)) {
@@ -82,9 +80,9 @@ public class Solution_26 {
                             topOperator = operatorStack.peek();
                         }
                     }
-                    // 当前操作符优先级比栈顶操作符优先级大（比如当前操作符: *,栈顶操作符：-）
-                    operatorStack.push(ch);
                 }
+                // 当前操作符优先级比栈顶操作符优先级大（比如当前操作符: *,栈顶操作符：-）
+                operatorStack.push(ch);
             }
         }
         while (!operatorStack.isEmpty() && !numberStack.isEmpty()) {
