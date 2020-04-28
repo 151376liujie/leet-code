@@ -51,7 +51,7 @@ public class Solution_26 {
 
         LinkedList<Character> operatorStack = new LinkedList<>();
         LinkedList<Integer> numberStack = new LinkedList<>();
-        StringBuilder number = new StringBuilder();
+        int number = 0;
         char[] charArray = expression.toCharArray();
         for (int i = 0; i < charArray.length; i++) {
             char ch = charArray[i];
@@ -60,14 +60,13 @@ public class Solution_26 {
             }
             //该字符是数字
             if (Character.isDigit(ch)) {
-                number.append(ch);
+                number = number * 10 + (ch - '0');
                 if (i == charArray.length - 1) {
-                    numberStack.push(Integer.valueOf(number.toString()));
-                    number = null;
+                    numberStack.push(number);
                 }
             } else {
-                numberStack.push(Integer.valueOf(number.toString()));
-                number.delete(0, number.length());
+                numberStack.push(number);
+                number = 0;
                 //该字符是操作符
                 if (operatorStack.isEmpty()) {
                     operatorStack.push(ch);
