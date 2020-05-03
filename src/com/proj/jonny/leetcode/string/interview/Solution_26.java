@@ -33,11 +33,11 @@ import java.util.LinkedList;
 public class Solution_26 {
 
     public static void main(String[] args) {
-//        System.out.println(calculate("13+2*20"));
-//        System.out.println(calculate(" 43/2 "));
-//        System.out.println(calculate(" 30+52 / 2 "));
-//        System.out.println(calculate(" 1-1 + 1 "));
-        System.out.println(calculate("1*2-3/4+5*6-7*8+9/10"));
+        System.out.println(calculate("13+2*20") == 53);
+        System.out.println(calculate(" 43/2 ") == 21);
+        System.out.println(calculate(" 30+52 / 2 ") == 56);
+        System.out.println(calculate(" 1-1 + 1 ") == 1);
+        System.out.println(calculate("1*2-3/4+5*6-7*8+9/10") == -24);
     }
 
     public static int calculate(String expression) {
@@ -51,44 +51,44 @@ public class Solution_26 {
 
         LinkedList<Character> operatorStack = new LinkedList<>();
         LinkedList<Integer> numberStack = new LinkedList<>();
-        StringBuilder number = new StringBuilder();
-        for (char ch : expression.toCharArray()) {
+        int number = 0;
+        char[] charArray = expression.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            char ch = charArray[i];
             if (Character.isWhitespace(ch)) {
                 continue;
             }
             //该字符是数字
             if (Character.isDigit(ch)) {
-                number.append(ch);
+                number = number * 10 + (ch - '0');
+                if (i == charArray.length - 1) {
+                    numberStack.push(number);
+                }
             } else {
-                numberStack.push(Integer.valueOf(number.toString()));
-                number.delete(0, number.length());
+                numberStack.push(number);
+                number = 0;
                 //该字符是操作符
-                if (operatorStack.isEmpty()) {
-                    operatorStack.push(ch);
-                } else {
+                if (!operatorStack.isEmpty()) {
                     Character topOperator = operatorStack.peek();
-                    //当前操作符的优先级大于栈顶的操作符（比如当前操作符: *,栈顶操作符：+）
-                    if (priorityMap.get(ch) > priorityMap.get(topOperator)) {
-                        operatorStack.push(ch);
-                    } else {
-                        // 当前操作符优先级比栈顶操作符有小鸡小（比如当前操作符: +,栈顶操作符：*）
+                    // 当前操作符优先级比栈顶操作符优先级小（比如当前操作符: +,栈顶操作符：*）
+                    while (priorityMap.get(topOperator) >= priorityMap.get(ch)) {
                         int result = calculate(numberStack, operatorStack);
                         numberStack.push(result);
-                        operatorStack.push(ch);
+                        if (operatorStack.isEmpty()) {
+                            break;
+                        } else {
+                            topOperator = operatorStack.peek();
+                        }
                     }
                 }
+                // 当前操作符优先级比栈顶操作符优先级大（比如当前操作符: *,栈顶操作符：-）
+                operatorStack.push(ch);
             }
-        }
-        // 把最后一个数字装进去
-        if (number.length() > 0) {
-            numberStack.push(Integer.valueOf(number.toString()));
-            number = null;
         }
         while (!operatorStack.isEmpty() && !numberStack.isEmpty()) {
             int result = calculate(numberStack, operatorStack);
             numberStack.push(result);
         }
-
         return numberStack.pop();
     }
 
