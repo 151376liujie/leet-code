@@ -9,7 +9,7 @@ public class Sorts {
 
 
     public static void main(String[] args) {
-        Integer[] array = new Integer[]{9, 4, 2, 5, 6, 1, 3};
+        int[] array = new int[]{9, 4, 2, 5, 6, 1, 3};
         System.out.println("before sort: " + Arrays.toString(array));
         selectionSort(array);
         System.out.println("after selection sort: " + Arrays.toString(array));
@@ -80,7 +80,7 @@ public class Sorts {
      *
      * @param arr
      */
-    private static void selectionSort(Integer[] arr) {
+    private static void selectionSort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             int j = i - 1;
             int indexOfMin = min(arr, i);
@@ -92,7 +92,7 @@ public class Sorts {
         }
     }
 
-    private static int min(Integer[] arr, int startIndex) {
+    private static int min(int[] arr, int startIndex) {
         int min = startIndex;
         for (int i = startIndex + 1; i < arr.length; i++) {
             if (arr[min] > arr[i]) {
@@ -100,6 +100,24 @@ public class Sorts {
             }
         }
         return min;
+    }
+
+    /**
+     * 归并排序
+     *
+     * @param arr
+     */
+    private static void mergerSort(int[] arr) {
+
+    }
+
+    /**
+     * 快速排序
+     *
+     * @param arr
+     */
+    private static void quickSort(int[] arr) {
+
     }
 
 }

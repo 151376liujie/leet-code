@@ -1,5 +1,8 @@
 package com.proj.jonny.leetcode.link;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 给定一个链表，判断链表中是否有环。
  * <p>
@@ -38,9 +41,34 @@ public class Solution_141 {
         three.next = four;
         four.next = two;
 
-        System.out.println(hasCycle(head));
+//        System.out.println(hasCycle(head));
+        System.out.println(hasCycleByHash(head));
     }
 
+    /**
+     * 走过的节点用一个Set集合存起来,当有环存在的时候,走过的节点一定在Set集合里面
+     *
+     * @param head
+     * @return
+     */
+    public static boolean hasCycleByHash(ListNode head) {
+        Set<ListNode> set = new HashSet<>();
+        while (head != null) {
+            if (set.contains(head)) {
+                return true;
+            }
+            set.add(head);
+            head = head.next;
+        }
+        return false;
+    }
+
+    /**
+     * 快慢指针法检测环
+     *
+     * @param head
+     * @return
+     */
     public static boolean hasCycle(ListNode head) {
 
         if (head == null) {
